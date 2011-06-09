@@ -12,8 +12,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(8);
             var esperado = new[] { 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -22,8 +22,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(14);
             var esperado = new[] { 10, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -32,8 +32,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(21);
             var esperado = new[] { 10, 5, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -42,8 +42,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(23);
             var esperado = new[] { 10, 5, 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -52,8 +52,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(31);
             var esperado = new[] { 20, 5, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -62,8 +62,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(33);
             var esperado = new[] { 20, 5, 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -72,8 +72,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(37);
             var esperado = new[] { 20, 10, 5, 2, };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -82,8 +82,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(41);
             var esperado = new[] { 20, 10, 5, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -92,8 +92,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(43);
             var esperado = new[] { 20, 10, 5, 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado, "Não conseguiu sacar");
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -102,8 +102,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(40);
             var esperado = new[] { 20, 20 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -112,8 +112,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(57);
             var esperado = new[] { 50, 5, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -122,8 +122,8 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(58);
             var esperado = new[] { 50, 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
         [TestMethod]
@@ -132,8 +132,7 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(59);
             var esperado = new[] { 50, 5, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
         }
 
         [TestMethod]
@@ -142,16 +141,9 @@ namespace TestProject1
             var caixa = new CaixaEletronicoManager();
             int[] notas = caixa.Sacar(323);
             var esperado = new[] {100, 100, 100, 10, 5, 2, 2, 2, 2 };
-            bool resultado = GetResultado(notas, esperado);
-            Assert.IsTrue(resultado);
+            CollectionAssert.AreEquivalent(esperado, notas);
+
         }
 
-        private bool GetResultado(int[] notas, int[] esperado)
-        {
-            bool resultado = notas.Length == esperado.Length;
-            for (int i = 0; i < notas.Length && resultado; i++)
-                resultado = notas[i] == esperado[i];
-            return resultado;
-        }
     }
 }
