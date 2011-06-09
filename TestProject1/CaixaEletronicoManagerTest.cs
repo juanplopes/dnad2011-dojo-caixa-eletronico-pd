@@ -136,6 +136,16 @@ namespace TestProject1
             Assert.IsTrue(resultado);
         }
 
+        [TestMethod]
+        public void QuandoSaco323()
+        {
+            var caixa = new CaixaEletronicoManager();
+            int[] notas = caixa.Sacar(323);
+            var esperado = new[] {100, 100, 100, 10, 5, 2, 2, 2, 2 };
+            bool resultado = GetResultado(notas, esperado);
+            Assert.IsTrue(resultado);
+        }
+
         private bool GetResultado(int[] notas, int[] esperado)
         {
             bool resultado = notas.Length == esperado.Length;
