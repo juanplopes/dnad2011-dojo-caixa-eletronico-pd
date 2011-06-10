@@ -145,5 +145,16 @@ namespace TestProject1
 
         }
 
+
+        [TestMethod]
+        public void QuandoSaco351()
+        {
+            var caixa = new CaixaEletronicoManager();
+            int[] notas = caixa.Sacar(351);
+            var esperado = new[] { 100, 100, 100, 20, 20, 5, 2, 2, 2 };
+            CollectionAssert.AreEquivalent(esperado, notas);
+
+        }
+
     }
 }
