@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System;
 
@@ -33,6 +33,7 @@ namespace CaixaEletronico
         {
             while (valor > 0)
             {
+                if (K[valor] == -1) throw new InvalidOperationException();
                 var moeda = W[K[valor]];
                 yield return moeda;
                 valor -= moeda;

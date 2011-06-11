@@ -1,11 +1,26 @@
 ﻿using CaixaEletronico;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace TestProject1
 {
     [TestClass]
     public class CaixaEletronicoManagerTest
     {
+        [TestMethod, ExpectedException(typeof(InvalidOperationException))]
+        public void QuandoSaco01()
+        {
+            var caixa = new CaixaEletronicoManager();
+            int[] notas = caixa.Sacar(1);
+        }
+
+        [TestMethod, ExpectedException(typeof(Exception), AllowDerivedTypes = true)]
+        public void QuandoSaco03()
+        {
+            var caixa = new CaixaEletronicoManager();
+            int[] notas = caixa.Sacar(3);
+        }
+
         [TestMethod]
         public void QuandoSaco08()
         {
